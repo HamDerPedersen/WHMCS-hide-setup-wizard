@@ -9,6 +9,10 @@ add_hook('AdminAreaHeadOutput', 1, function () {
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('a[href*="configsetuptasks.php"]').forEach(function (link) {
+        if (!link.textContent || !link.textContent.toLowerCase().includes('setup task')) {
+            return;
+        }
+
         const banner = link.closest('.alert, .panel, .card, .well, .message, .notification');
         const target = banner || link.parentElement;
         if (target) {
