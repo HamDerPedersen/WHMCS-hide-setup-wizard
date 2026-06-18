@@ -10,7 +10,10 @@ add_hook('AdminAreaHeadOutput', 1, function () {
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('a[href*="configsetuptasks.php"]').forEach(function (link) {
         const banner = link.closest('.alert, .panel, .card, .well, .message, .notification');
-        (banner || link.parentElement).remove();
+        const target = banner || link.parentElement;
+        if (target) {
+            target.remove();
+        }
     });
 });
 </script>
