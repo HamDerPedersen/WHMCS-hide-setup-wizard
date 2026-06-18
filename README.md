@@ -1,2 +1,8 @@
 # WHMCS-hide-setup-wizard
-WHMCS hide admin theme banner (Set up and configure your WHMCS installation.)
+
+Simple WHMCS hook that removes the persistent admin setup task banner (`Click here to view the setup tasks...`).
+
+## Installation
+
+1. Copy `includes/hooks/hide_setup_wizard_banner.php` into your WHMCS installation under `includes/hooks/`.
+2. Reload the WHMCS admin area (the hook is active automatically; no extra configuration needed).
