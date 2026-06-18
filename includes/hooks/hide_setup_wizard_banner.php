@@ -8,9 +8,14 @@ add_hook('AdminAreaHeadOutput', 1, function () {
     return <<<'HTML'
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('a[href*="configsetuptasks.php"]').forEach(function (link) {
+    const links = document.querySelectorAll('a[href*="configsetuptasks.php"]');
+    if (!links.length) {
+        return;
+    }
+
+    links.forEach(function (link) {
         const banner = link.closest(
-            '.alert, .panel, .card, .well, .message, .notification, [class*="alert"], [class*="notice"], [class*="warning"]'
+            '.alert, .panel, .card, .well, .message, .notification'
         );
         if (banner) {
             banner.remove();
